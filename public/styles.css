@@ -25,6 +25,8 @@ p{margin:0}
 header.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
 .brand{display:flex;align-items:center;gap:12px;font:700 1.4rem var(--display);color:var(--fg);text-decoration:none}
 .brand img{width:44px;height:44px;object-fit:contain}
+.top-actions{display:flex;align-items:center;gap:10px}
+.btn.panel-entry{background:var(--teal);color:#0f3050}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--btn);color:var(--btn-fg);font:600 1rem var(--body);padding:14px 24px;border-radius:999px;text-decoration:none;border:0}
 .btn:hover{filter:brightness(1.07)}
 .btn:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
@@ -72,4 +74,55 @@ footer .row{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-betw
   .logo-big{display:none}
   section{padding-block:44px}
 }
+@media (max-width:520px){
+  header.top{flex-wrap:wrap}
+  .top-actions{width:100%;justify-content:flex-end;gap:8px}
+  .top-actions .btn.small{padding:9px 12px;font-size:.82rem}
+}
 @media (prefers-reduced-motion:no-preference){.btn{transition:filter .15s}}
+
+/* Estilos del panel; la landing mantiene su tema original. */
+.panel-page{--teal:#1DB2B6;--orange:#F9731D;background:var(--bg);min-height:100vh}
+.panel-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.panel-back,.panel-footer a{color:var(--teal);font-size:.92rem;text-decoration:none}
+.panel-back:hover,.panel-footer a:hover{text-decoration:underline}
+.panel-main{max-width:900px;margin:28px auto 64px}
+.panel-title{margin-top:12px}
+.panel-intro,.panel-muted{color:var(--muted);margin-top:10px}
+.panel-message{margin-top:24px;padding:12px 16px;border:1px solid var(--orange);border-radius:10px;background:var(--orange-soft);color:var(--fg)}
+.panel-tabs{display:flex;gap:8px;overflow-x:auto;margin:28px 0 20px;padding:4px 2px}
+.panel-tab{flex:1 0 auto;padding:11px 16px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--fg);font:600 .96rem var(--body);cursor:pointer}
+.panel-tab.active{border-color:var(--teal);background:var(--teal-soft);color:var(--fg)}
+.panel-section{padding:28px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.panel-section h2{font-size:1.45rem}
+.panel-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:22px}
+.panel-form label,.panel-select-label{display:grid;gap:6px;color:var(--fg);font-size:.94rem;font-weight:600}
+.panel-form input,.panel-form select,.panel-form textarea,.panel-select-label select{width:100%;min-width:0;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:400 1rem var(--body)}
+.panel-form textarea{resize:vertical}
+.panel-form input:focus,.panel-form select:focus,.panel-form textarea:focus,.panel-select-label select:focus{outline:2px solid var(--teal);outline-offset:1px}
+.panel-button{display:inline-flex;justify-content:center;align-items:center;min-height:42px;padding:9px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);font:600 .9rem var(--body);text-decoration:none;cursor:pointer}
+.panel-primary{border-color:var(--teal);background:var(--teal);color:#0F3050}
+.panel-cancel{border-color:var(--orange);color:var(--orange)}
+.panel-subtitle{margin-top:36px!important;font-size:1.3rem!important}
+.panel-list,.panel-history{display:grid;gap:12px;margin-top:16px}
+.panel-card{display:flex;justify-content:space-between;align-items:center;gap:16px;min-width:0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.panel-card h3{font-size:1.02rem;overflow-wrap:anywhere}
+.panel-card p{margin-top:5px;color:var(--muted);font-size:.94rem;overflow-wrap:anywhere}
+.panel-empty{padding:16px;border:1px dashed var(--line);border-radius:10px;color:var(--muted)}
+.panel-status{display:inline-block;margin-top:8px;padding:3px 8px;border-radius:20px;background:var(--teal-soft);color:var(--fg);font-size:.82rem}
+.panel-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px}
+.panel-select-label{max-width:420px;margin-top:20px}
+.panel-group-title{margin:18px 0 0;font:700 1.05rem var(--display)}
+.panel-reminder{flex-wrap:wrap}
+.panel-footer{display:flex;justify-content:space-between;gap:12px;padding-block:24px 36px;color:var(--muted);font-size:.9rem}
+@media(max-width:640px){
+  .panel-header{align-items:flex-start}
+  .panel-back{text-align:right}
+  .panel-main{margin-block:18px 40px}
+  .panel-section{padding:20px 16px}
+  .panel-form{grid-template-columns:1fr}
+  .panel-card,.panel-appointment{align-items:flex-start;flex-direction:column}
+  .panel-actions{justify-content:flex-start}
+  .panel-reminder .panel-button{width:100%}
+  .panel-footer{flex-direction:column}
+}

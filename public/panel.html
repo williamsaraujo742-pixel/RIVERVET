@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel · Rivervet</title>
+  <link rel="icon" href="img/icon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="panel-page">
+  <div class="wrap">
+    <header class="panel-header">
+      <a class="brand" href="index.html"><img alt="" src="img/icon.png">Rivervet</a>
+      <a class="panel-back" href="index.html">Volver a la página principal</a>
+    </header>
+
+    <main class="panel-main">
+      <p class="eyebrow">Gestión de la clínica</p>
+      <h1 class="panel-title">Panel Rivervet</h1>
+      <p class="panel-intro">Pacientes, citas e historial clínico en un solo lugar.</p>
+      <div id="mensaje" class="panel-message" role="alert" hidden></div>
+
+      <nav class="panel-tabs" aria-label="Secciones del panel">
+        <button class="panel-tab active" type="button" data-vista="pacientes" aria-selected="true">Pacientes</button>
+        <button class="panel-tab" type="button" data-vista="citas" aria-selected="false">Citas</button>
+        <button class="panel-tab" type="button" data-vista="historial" aria-selected="false">Historial</button>
+        <button class="panel-tab" type="button" data-vista="recordatorios" aria-selected="false">Recordatorios</button>
+      </nav>
+
+      <section class="panel-section" data-vista-panel="pacientes">
+        <h2>Registrar paciente</h2>
+        <form id="form-paciente" class="panel-form">
+          <label>Mascota
+            <input name="mascota" required maxlength="100">
+          </label>
+          <label>Dueño
+            <input name="dueno" required maxlength="100">
+          </label>
+          <label>Teléfono (9 dígitos)
+            <input name="telefono" type="tel" inputmode="numeric" pattern="[0-9]{9}" maxlength="9" required>
+          </label>
+          <button class="panel-button panel-primary" type="submit">Guardar paciente</button>
+        </form>
+        <h2 class="panel-subtitle">Pacientes registrados</h2>
+        <div id="lista-pacientes" class="panel-list"></div>
+      </section>
+
+      <section class="panel-section" data-vista-panel="citas" hidden>
+        <h2>Agendar cita</h2>
+        <form id="form-cita" class="panel-form">
+          <label>Paciente
+            <select name="pacienteId" id="cita-paciente" required></select>
+          </label>
+          <label>Fecha
+            <input name="fecha" type="date" required>
+          </label>
+          <label>Hora
+            <input name="hora" type="time" required>
+          </label>
+          <label>Motivo
+            <input name="motivo" maxlength="200">
+          </label>
+          <button class="panel-button panel-primary" type="submit">Agendar cita</button>
+        </form>
+        <h2 class="panel-subtitle">Citas</h2>
+        <div id="lista-citas" class="panel-list"></div>
+      </section>
+
+      <section class="panel-section" data-vista-panel="historial" hidden>
+        <h2>Historial clínico</h2>
+        <label class="panel-select-label">Paciente
+          <select id="historial-paciente"></select>
+        </label>
+        <div id="historial-contenido" class="panel-history"></div>
+        <h2 class="panel-subtitle">Agregar atención</h2>
+        <form id="form-atencion" class="panel-form">
+          <label>Fecha
+            <input name="fecha" type="date" required>
+          </label>
+          <label>Diagnóstico
+            <input name="diagnostico" maxlength="500" required>
+          </label>
+          <label>Tratamiento
+            <textarea name="tratamiento" rows="3" maxlength="1000"></textarea>
+          </label>
+          <button class="panel-button panel-primary" type="submit">Guardar atención</button>
+        </form>
+      </section>
+
+      <section class="panel-section" data-vista-panel="recordatorios" hidden>
+        <h2>Recordatorios para mañana</h2>
+        <p class="panel-muted">Abre WhatsApp con el mensaje listo para enviar al dueño.</p>
+        <div id="lista-recordatorios" class="panel-list"></div>
+      </section>
+    </main>
+    <footer class="panel-footer">
+      <span>Rivervet · Gestión de citas e historial</span>
+      <a href="index.html">Página principal</a>
+    </footer>
+  </div>
+  <script src="panel.js"></script>
+</body>
+</html>
