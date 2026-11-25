@@ -1,0 +1,9 @@
+{
+  "name": "rivervet-web",
+  "version": "1.0.0",
+  "description": "Página web de Rivervet",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "license": "MIT",
+  "dependencies": { "express": "^4.21.2" }
+}
